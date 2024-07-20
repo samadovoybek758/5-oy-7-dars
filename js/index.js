@@ -38,3 +38,34 @@ btn && btn.addEventListener('click', function (el) {
 
 
 })
+
+document.addEventListener('DOMContentLoaded', function () {
+    let todos = getdata()
+    todos.length && todos.forEach(element => {
+        let card1 = creat_item(element);
+        card.innerHTML += card1 ;
+    });
+})
+
+select && select.addEventListener('change', function () {
+    let todos = getdata()
+    let selectValue = this.value
+    let result = todos.filter(function (el) {
+        if (selectValue == 'all') {
+            return true
+        }if (selectValue == 'active') {
+            return el.status = 'active'
+        }if (selectValue == 'inactive') {
+            return el.status = 'inactive'
+        }
+    })
+
+    card.innerHTML = ' '
+
+    result && result.forEach(function (el) {
+        let card1 = creat_item(el)
+        card.innerHTML += card1
+    }
+
+    )
+})

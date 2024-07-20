@@ -25,13 +25,13 @@ function getdata() {
 
 
 function creat_item (todo){
-    let ischecked = todo.status == 'active' ? false : true
+    let ischecked = todo.status == 'active' ? false : true;
     return `
     <div class="card_item">
                 <div class="left_side">
-                    <input type="checkbox" class="card_item_check" checked = ${!ischecked ?true : false}>
+                    <input type="checkbox" class="card_item_check" checked = ${!ischecked ?'checked' : ''}>
                     <div>
-                        <p>${todo.name}</p>
+                        <p style= "text-decoration : ${ischecked ? "line-through" : 'none'}}">${todo.name}</p>
                         <p>${todo.time}</p>
                     </div>
                 </div>
