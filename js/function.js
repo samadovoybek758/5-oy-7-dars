@@ -29,15 +29,15 @@ function creat_item (todo){
     return `
     <div class="card_item">
                 <div class="left_side">
-                    <input type="checkbox" class="card_item_check" checked = ${!ischecked ?'checked' : ''}>
+                    <input type="checkbox" class="card_item_check"  ${ischecked ? 'checked' : ''}'}>
                     <div>
-                        <p style= "text-decoration : ${ischecked ? "line-through" : 'none'}}">${todo.name}</p>
+                        <p style= "text-decoration: ${ischecked ? "line-through" : "none"}">${todo.name}</p>
                         <p>${todo.time}</p>
                     </div>
                 </div>
 
                 <div class="right_side">
-                    <i class="fa-solid fa-trash"></i>
+                    <i  class="fa-solid fa-trash delete"></i>
                     <i class="fa-sharp fa-solid fa-pen"></i>
                 </div>
             </div>

@@ -4,12 +4,12 @@
     box-sizing: border-box;
 }
 body{
-    background-color: azure;
+    background: linear-gradient(to right, lightblue, rgb(238, 146, 146),aqua,rgb(170, 149, 149));
     font-family: sans-serif;
 }
 .continer{
     margin: 50px auto;
-    background-color: rgb(147, 240, 240);
+    background-color: rgb(78, 119, 119);
     max-width: 800px;
     padding: 20px;
     border-radius: 10px;
@@ -64,6 +64,9 @@ h1{
     padding: 15px;
     border: 1px solid gray;
     border-radius: 10px;
+    font-size: 20px;
+    color: gray;
+    font-weight: 700;
 }
 .left_side{
     display: flex;

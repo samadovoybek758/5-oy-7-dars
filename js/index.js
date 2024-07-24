@@ -1,6 +1,6 @@
 import{validate,getdata,creat_item} from "./function.js"
 
-const todo_input = document.querySelector('#todo_input');
+const todo_input = document.getElementById('todo_input');
 const todo_name = document.querySelector('#todo_name');
 const todo_time = document.querySelector('#todo_time');
 const buttons = document.querySelector('#buttons');
@@ -22,19 +22,16 @@ btn && btn.addEventListener('click', function (el) {
         id : Date.now(),
         name : todo_name.value ,
         time : todo_time.value,
-        status : 'active'
+        status : 'inactive'
 }
     let todos = getdata();
     todos.push(todo);
     localStorage.setItem('todos',JSON.stringify(todos));
-    todo_name.value = null;
-    todo_time.value = null;
-
+    todo_name = null
 
 
     const card_item = creat_item(todo);
-    card.innerHTML += card_item
-
+    card.innerHTML += card_item;
 
 
 })
@@ -53,8 +50,10 @@ select && select.addEventListener('change', function () {
     let result = todos.filter(function (el) {
         if (selectValue == 'all') {
             return true
+
         }if (selectValue == 'active') {
             return el.status = 'active'
+
         }if (selectValue == 'inactive') {
             return el.status = 'inactive'
         }
@@ -68,4 +67,21 @@ select && select.addEventListener('change', function () {
     }
 
     )
+
+
+
+    const deleteButtons = document.querySelectorAll(".delete");
+    deleteButtons.forEach(element => {
+        element.addEventListener('click',function () {
+            let isDelete = confirm("rosdan ham uchirmoqchimisz")
+            if (isDelete) {
+                this.parentNode.parentNode.remove();
+                let id = this.getAttribute('data-id');
+                todos = todos.filter(function (el) {
+                    return el.id != id
+                })
+                localStorage.setItem('todos',JSON.stringify(todos))
+            }
+        })
+    });
 })
